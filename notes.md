@@ -1,4 +1,4 @@
-w1d1
+###### w1d1
 What ways can graphs be represented? Pros/cons of various ways.
 >
 
@@ -14,7 +14,7 @@ List the key benefits that HTML5 introduced.
 How do media queries work?
 >  Its a css module that recognizes screen resolution making responsive web design possible.
 
-w1d2
+###### w1d2
 What is a closure? How are they used?
 > JavaScript follows lexical scope which means variables are defined line by
 > line rather than at execution. Since functions are objects in JS, a closure is
