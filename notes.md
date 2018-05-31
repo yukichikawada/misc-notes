@@ -46,3 +46,22 @@ What's the event loop?
 > The event loop is the order in which programs are performed making
 > JavaScript's asynchronous execution work. Callstack pushes programs onto the
 > event queue, once event queue is empty callstack pushes next.
+
+###### w1d4
+What are the steps of BFS of a graph?
+> BFS of a graph acts like a queue. Push a vertex onto the queue, push all of the
+> the first vertex's children onto the queue. Keep track of visited vertices to
+> prevent getting trapped in a cycle.
+
+How does DNS work?
+> Domain registrars keep track of domain names and their IP addresses.
+
+What are React's lifecycle methods?
+> * getDefaultProps()
+> * getInitialState()
+> * componentWillMount()
+> * componentDidMount()
+> * componentWillReceiveProps(nextProps)
+> * shouldComponentUpdate(nextProps, nextState)
+> * componentWillUpdate(nextProps, nextState)
+> * componentDidUpdate(prevProps, prevState)
