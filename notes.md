@@ -28,3 +28,21 @@ How does CSS grid work?
 > rows or columns. Rather than the layout residing in the html markup, it lives
 > in the css file. Simply put: CSS grid is a module that transfers the layout
 > from the html to a css file.
+
+###### w1d3
+What are the steps for DFS on a graph?
+> For each vertex, start traversal. Keep track of visited vertices so as to
+> when presented with the opportunity to cycle, visit unvisited vertex or
+> terminate.
+
+What happens what you navigate to www.google.com?
+> * check caches for address (browser, OS, router, ISP)
+> * ISP recursively reads domain
+> * domain server routes address
+> * connection is formed with browser and data is transferred + status code
+> * browser renders data
+
+What's the event loop?
+> The event loop is the order in which programs are performed making
+> JavaScript's asynchronous execution work. Callstack pushes programs onto the
+> event queue, once event queue is empty callstack pushes next.
