@@ -65,3 +65,23 @@ What are React's lifecycle methods?
 > * shouldComponentUpdate(nextProps, nextState)
 > * componentWillUpdate(nextProps, nextState)
 > * componentDidUpdate(prevProps, prevState)
+
+###### w1d5
+What are the steps of topological sort?
+> Start with vertices that don't have any in-edges. Don't add a vertex until all
+> its in-edges have been included. Topo sort is like a combination of DFS and
+> BFS.
+
+What is TCP?
+> Transmission Control Protocol is the main protocol for the internet. It's
+> optimized for data reliability as opposed to UDP which emphasizes reduced
+> latency.
+
+What's an IIFE?
+> Immediately-invoked function expression ("iffy") can be used to avoid variable
+> hoisting from within blocks, protect against polluting the global environment
+> and simultaneously allow public access to methods while retaining privacy for
+> variables defined within the function. ~ Wikipedia
+
+What lifecycle methods get called in the update/unmount phase?
+> 
