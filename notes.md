@@ -84,4 +84,22 @@ What's an IIFE?
 > variables defined within the function. ~ Wikipedia
 
 What lifecycle methods get called in the update/unmount phase?
-> 
+>
+
+###### w1d6
+What are the steps of Djikstra's algorithm?
+> * Default all nodes unvisited and distance nil. Original node distance = 0
+> * Traverse neighboring nodes reseting distance to prev distance + edge
+ if less than prev value.
+ > * Done when all nodes are visited or destination node distance is smaller potential 
+
+What is UDP?
+> Unlike TCP, UDP does not guarantee data reliability but should see better
+> latency. A situation when UDP would be advantageous is when streaming data
+> that quickly becomes dated.
+
+== vs. ===
+> === doesn't include type conversion
+
+What is **this** in JS?
+> It refers to the object that called the function.
