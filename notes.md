@@ -114,3 +114,8 @@ What are the HTTP methods?
 
 What is hoisting in JS?
 > Hoisting is the declaration of a variables and functions of the current scope.
+
+###### w2d2
+What is `new` in JS?
+> It is syntactic sugar to instantiate an instance of the function it's being
+> called with. It was added to make JS look more like other OO languages.
