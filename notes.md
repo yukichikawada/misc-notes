@@ -91,7 +91,7 @@ What are the steps of Djikstra's algorithm?
 > * Default all nodes unvisited and distance nil. Original node distance = 0
 > * Traverse neighboring nodes reseting distance to prev distance + edge
  if less than prev value.
- > * Done when all nodes are visited or destination node distance is smaller potential 
+ > * Done when all nodes are visited or destination node distance is smaller potential
 
 What is UDP?
 > Unlike TCP, UDP does not guarantee data reliability but should see better
@@ -103,3 +103,14 @@ What is UDP?
 
 What is **this** in JS?
 > It refers to the object that called the function.
+
+###### w2d1
+What is recursion?
+> Recursion is when a function calls itself.
+
+What are the HTTP methods?
+> The main ones are: GET, POST, PUT, DELETE. There is also: HEAD, CONNECT,
+> OPTIONS, TRACE.
+
+What is hoisting in JS?
+> Hoisting is the declaration of a variables and functions of the current scope.
