@@ -119,3 +119,16 @@ What is hoisting in JS?
 What is `new` in JS?
 > It is syntactic sugar to instantiate an instance of the function it's being
 > called with. It was added to make JS look more like other OO languages.
+
+###### w2d2
+HTTP vs HTTPS
+> HTTPS is secure because the 's' stands for socket which means a secured
+> connection is established between the client and server preventing anyone
+> from intercepting data during transmission.
+
+PUT vs PATCH
+> Though PUT & PATCH are often interchangeable, PUT replaces the whole object
+> while PATCH contains only the key value pair that needs updating.
+
+What is event bubbling
+> In JS when a nested click handler triggers events on its parent element.
