@@ -120,7 +120,7 @@ What is `new` in JS?
 > It is syntactic sugar to instantiate an instance of the function it's being
 > called with. It was added to make JS look more like other OO languages.
 
-###### w2d2
+###### w2d3
 HTTP vs HTTPS
 > HTTPS is secure because the 's' stands for socket which means a secured
 > connection is established between the client and server preventing anyone
@@ -132,3 +132,15 @@ PUT vs PATCH
 
 What is event bubbling
 > In JS when a nested click handler triggers events on its parent element.
+
+###### w2d4
+Cookies vs localStorage vs sessionStorage
+> These differ on datatypes, duration, size, whether they're sent with requests.
+> Cookies stored as strings, have expire dates, 4kb max, sent with reqs.
+> localStorage can be JS primitives, don't expire,  5MB max, not sent w/reqs.
+> sessionStorage is like localStorage except, expires on window close
+
+What is event delegation in JS?
+> Event delegation is the handling of events from a common ancestor of many
+> elements e.g. instead of putting clickHandler's on every element of a table,
+> monitor events from the table via event.target.
