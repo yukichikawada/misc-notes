@@ -144,3 +144,20 @@ What is event delegation in JS?
 > Event delegation is the handling of events from a common ancestor of many
 > elements e.g. instead of putting clickHandler's on every element of a table,
 > monitor events from the table via event.target.
+
+###### w2d5
+What is Cross-site Scripting (XXS) Attack?
+> XXS is when malicious code is executed on the client compromising the
+> security of a site.
+
+ES5 vs ES6
+> * `let` allows for block level scope
+> * anonymous functions
+> * fat arrow functions which maintain `this`
+> * spread operator
+> * syntactic sugar like Class
+
+Tabulation vs Memoization
+> Tabulation is a bottom up approach utilized in dynamic programming.
+> Memoization is a top down approach of caching solutions for a parent
+> case.
