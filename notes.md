@@ -161,3 +161,29 @@ Tabulation vs Memoization
 > Tabulation is a bottom up approach utilized in dynamic programming.
 > Memoization is a top down approach of caching solutions for a parent
 > case.
+
+###### w2d6
+Function Expression vs Function Declaration in JS
+> Function expressions are non-hoisted variables while declarations are.
+
+SQL: `GROUP BY` vs `HAVING`
+> Group by takes a column name. Having could behave like `WHERE` if absent,
+> however it typically used with aggregate functions.
+
+###### s3d1
+What is a heap and its various operations?
+> A heap is a more complex binary tree. Heaps are evenly filled, starting with
+> the left node. Min heaps are when parent nodes <= children. Max heap is the
+> inverse of min heap - >= - LR order of nodes doesn't otherwise matter.
+
+> A child node of an item in heap is 2i + 1||2, important if you want to look
+> at it as an array or queue. When add/removing elements, rebalance heap.
+
+What is AJAX?
+> Asynchronous JavaScript And XML (AJAX), is not a language it's a technique.
+> It decouples data interchange and view creating a more dynamic feeling exp.
+
+What are the different sages of a page's lifecycle?
+> * DOMContentLoaded - fully loaded
+> * load - events trigger one images and styles are loaded
+> * beforeunload/unload is when the user is leaving the page triggers action
