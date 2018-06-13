@@ -187,3 +187,20 @@ What are the different sages of a page's lifecycle?
 > * DOMContentLoaded - fully loaded
 > * load - events trigger one images and styles are loaded
 > * beforeunload/unload is when the user is leaving the page triggers action
+
+###### s3d2
+var vs let vs const
+> var is function scoped while let and const are block scope. const is
+> immutable, let isn't.
+
+How does heap sort work?
+> Heapsort is a in-place sorting algorithm that works bottom up.
+
+What's the same origin policy?
+> It's a concept in web app security that describes allowing a browser to
+> load scripts from a particular origin.
+
+What is CORS?
+> Cross-Origin Resource Sharing is a mechanism that let's an app draw content
+> from multiple origins via permissions in the header of the request.
+> i.e. think images hosted elsewhere
