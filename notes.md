@@ -170,7 +170,7 @@ SQL: `GROUP BY` vs `HAVING`
 > Group by takes a column name. Having could behave like `WHERE` if absent,
 > however it typically used with aggregate functions.
 
-###### s3d1
+###### w3d1
 What is a heap and its various operations?
 > A heap is a more complex binary tree. Heaps are evenly filled, starting with
 > the left node. Min heaps are when parent nodes <= children. Max heap is the
@@ -188,7 +188,7 @@ What are the different sages of a page's lifecycle?
 > * load - events trigger one images and styles are loaded
 > * beforeunload/unload is when the user is leaving the page triggers action
 
-###### s3d2
+###### w3d2
 var vs let vs const
 > var is function scoped while let and const are block scope. const is
 > immutable, let isn't.
@@ -204,3 +204,7 @@ What is CORS?
 > Cross-Origin Resource Sharing is a mechanism that let's an app draw content
 > from multiple origins via permissions in the header of the request.
 > i.e. think images hosted elsewhere
+
+###### w3d3
+NoSQL vs NoSQL
+> SQL is a predefined table vs a non-predefined one. Sharding becomes difficult.
