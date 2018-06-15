@@ -208,3 +208,8 @@ What is CORS?
 ###### w3d3
 NoSQL vs NoSQL
 > SQL is a predefined table vs a non-predefined one. Sharding becomes difficult.
+
+###### w3d4
+What does bind do in JS?
+> Bind preserves the context of this when a method is passed separately from its
+> object. bind takes the object the method belongs to.
