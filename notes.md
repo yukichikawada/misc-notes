@@ -213,3 +213,8 @@ NoSQL vs NoSQL
 What does bind do in JS?
 > Bind preserves the context of this when a method is passed separately from its
 > object. bind takes the object the method belongs to.
+
+###### w4d1
+Value vs reference copying in JS
+> Primitives are copied by value - think null, undefined, boolean, number,
+> string - immutable. Reference copying is for objects, arrays, and functions.
