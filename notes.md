@@ -218,3 +218,14 @@ What does bind do in JS?
 Value vs reference copying in JS
 > Primitives are copied by value - think null, undefined, boolean, number,
 > string - immutable. Reference copying is for objects, arrays, and functions.
+
+###### w4d2
+What are the 7 different JS types?
+> null, undefined, boolean, number, string, object, symbol, all of which are
+> primitives save object.
+
+What is AWS SageMaker?
+> SageMarker is the AWS platform for machine learning. It can help perform
+> image, sentiment, and other analysis with a number of frameworks like
+> tensorflow and apachemxnet. It's a pretty comprehensive environment that
+> manages the storage, training, and deployment of models.
