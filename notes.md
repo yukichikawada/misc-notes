@@ -229,3 +229,7 @@ What is AWS SageMaker?
 > image, sentiment, and other analysis with a number of frameworks like
 > tensorflow and apachemxnet. It's a pretty comprehensive environment that
 > manages the storage, training, and deployment of models.
+
+###### w4d3
+AVL Trees
+> AVL trees are a type of balances BST. Each subtree differs by no more than 1.
