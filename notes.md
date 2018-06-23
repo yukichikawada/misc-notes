@@ -233,3 +233,10 @@ What is AWS SageMaker?
 ###### w4d3
 AVL Trees
 > AVL trees are a type of balances BST. Each subtree differs by no more than 1.
+
+###### w4d5
+What is a hash table?
+> Records are stored in buckets using hash keys
+> Hash keys are calculated by applying a hashing algorithm to a chosen value contained within the record. This chosen value must be a common value to all the records.
+> Each bucket can have multiple records which are organized in a particular order.
+> https://stackoverflow.com/questions/730620/how-does-a-hash-table-work
