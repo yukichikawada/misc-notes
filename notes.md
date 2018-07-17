@@ -19,7 +19,7 @@ What is a closure? How are they used?
 > JavaScript follows lexical scope which means variables are defined line by
 > line rather than at execution. Since functions are objects in JS, a closure is
 > a function that has variables defined within its scope that inner functions
-> can use. Closures differ from callbacks in that cb's take functions are a
+> can use. Closures differ from callbacks in that cb's take functions as a
 > parameter rather than creating the function internally.
 
 How does CSS grid work?
@@ -240,3 +240,14 @@ What is a hash table?
 > Hash keys are calculated by applying a hashing algorithm to a chosen value contained within the record. This chosen value must be a common value to all the records.
 > Each bucket can have multiple records which are organized in a particular order.
 > https://stackoverflow.com/questions/730620/how-does-a-hash-table-work
+
+##### w5d1
+Time complexity of binary search of an array
+> Log n because for bs of an array, pivot on the middle number of the array.
+
+JS Promise
+> A promise is an object that enables synchronicity in JS. A promise has three
+> states: pending, resolved, rejected. Appending .then() to a promise
+> instructs the function not to be called until the promise is resolved, it also
+> returns a promise making them chainable. Alternatively, .catch() is what's 
+> used when a promise is rejected.
