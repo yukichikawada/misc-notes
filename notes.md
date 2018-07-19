@@ -251,3 +251,20 @@ JS Promise
 > instructs the function not to be called until the promise is resolved, it also
 > returns a promise making them chainable. Alternatively, .catch() is what's 
 > used when a promise is rejected.
+
+##### w5d2
+What is WPA2?
+> It's the standard network security encryption technology of WiFi and the 
+> successor to WPA and WEP. It uses an encryption method called AES that checks
+> to see if the encryption key has been altered which is different for each
+> packet of data. WiFi Protected Setup, WPS, is a feature sometimes used for
+> home networks that makes the network easier to setup but, also compromise.
+
+##### w5d3
+Promise API
+> * Promise.resolve
+> * Promise.reject
+> * Promise.all => usually takes an array of promises then performs an action
+>   once they all resolve, in order of idx. It immediately fails if any promise
+>   are rejected, however other promises continue executing.
+> * Promise.race => takes an array of promises and returns the first one to finish, resolve or reject.
