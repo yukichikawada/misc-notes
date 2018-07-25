@@ -87,6 +87,136 @@ function isogramCheck(chr, str) {
   return !str.split('').includes(chr);
 }
 
-console.log(isIsogram('isogram'));
-console.log(isIsogram('aba'));
-console.log(isIsogram("moOse"));
+// console.log(isIsogram('isogram'));
+// console.log(isIsogram('aba'));
+// console.log(isIsogram("moOse"));
+
+function bSearch(tgt, array) {
+  const midPoint = Math.floor(array.length / 2);
+  
+  if (array[midPoint] == tgt) {
+    return midPoint;
+  } else if (array[midPoint] > tgt) {
+    return bSearch(tgt, array.slice(0, midPoint))
+  } else if (array[midPoint] < tgt) {
+    // midPoint + 1 = returned idx offset
+    // arr.slice(midPoint+1) so that same idx isn't checked twice
+    return (midPoint + 1) + bSearch(tgt, array.slice(midPoint+1));
+  }
+  return "target not found"
+}
+
+// console.log(bSearch(0, [1, 2, 3]))
+// console.log(bSearch(2, [1, 2, 3]))
+// console.log(bSearch(2, [1, 2, 3, 4, 5]))
+// console.log(bSearch(5, [1, 2, 3, 4, 5]))
+// console.log(bSearch(9, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+
+function bubbleSort(arr) {
+  let search = true;
+
+  while (search) {
+    search = false;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > arr[i+1]) {
+        search = true;
+        let temp = arr[i+1];
+        arr[i+1] = arr[i];
+        arr[i] = temp;
+      }
+    }
+  }
+
+  return arr;
+}
+
+// console.log(bubbleSort([1, 2, 3, 4, 5]))
+// console.log(bubbleSort([6, 1, 2, 3, 4, 5]))
+// console.log(bubbleSort([1, 3, 2, 3, 1, 2, 4, 5]))
+
+function mergeSort(arr) {
+  if (arr.length < 2) return arr;
+  let midPoint = Math.floor(arr.length / 2);
+
+  const left = mergeSort(arr.slice(0, midPoint));
+  const right = mergeSort(arr.slice(midPoint));
+
+  return merge(left, right);
+}
+
+function merge(left, right) {
+  const arr = [];
+  
+  while (left.length && right.length) {
+    if (left[0] <= right[0]) {
+      arr.push(left.shift());
+    } else {
+      arr.push(right.shift());
+    }
+  }
+  
+  return arr.concat(left).concat(right);
+}
+
+// console.log(mergeSort([1, 2, 3, 4, 5]))
+// console.log(mergeSort([5, 4, 3, 2, 1, 2, 3, 4, 5]))
+
+
+function quickSort(arr) {
+  if (arr.length < 2) return arr;
+  const pivot = arr.shift();
+
+  let left = arr.filter(el => (el <= pivot));
+  let right = arr.filter(el => (el > pivot));
+
+  left = quickSort(left);
+  right = quickSort(right);
+
+  return left.concat([pivot]).concat(right);
+}
+
+console.log(quickSort([1, 2, 3, 4, 5]))
+console.log(quickSort([5, 4, 3, 2, 1, 2, 3, 4, 5]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
