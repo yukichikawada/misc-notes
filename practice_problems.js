@@ -175,9 +175,25 @@ function quickSort(arr) {
   return left.concat([pivot]).concat(right);
 }
 
-console.log(quickSort([1, 2, 3, 4, 5]))
-console.log(quickSort([5, 4, 3, 2, 1, 2, 3, 4, 5]))
+// console.log(quickSort([1, 2, 3, 4, 5]))
+// console.log(quickSort([5, 4, 3, 2, 1, 2, 3, 4, 5]))
 
+
+// https://www.codewars.com/kata/sum-of-the-first-nth-term-of-series/
+function seriesSum(n){
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    sum += 1 / ((i * 3) + 1);
+  }
+
+  return sum.toFixed(2);
+}
+
+
+console.log(SeriesSum(1));
+console.log(SeriesSum(2));
+console.log(SeriesSum(3));
+console.log(SeriesSum(4));
 
 
 
