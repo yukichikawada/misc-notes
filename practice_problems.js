@@ -190,14 +190,59 @@ function seriesSum(n){
 }
 
 
-console.log(SeriesSum(1));
-console.log(SeriesSum(2));
-console.log(SeriesSum(3));
-console.log(SeriesSum(4));
+// console.log(SeriesSum(1));
+// console.log(SeriesSum(2));
+// console.log(SeriesSum(3));
+// console.log(SeriesSum(4));
+
+function arrayDiff(a, b) {
+  return a.filter(el => !b.includes(el));
+}
+
+// console.log(arrayDiff([], [4, 5]))     // => [] 
+// console.log(arrayDiff([3, 4], [4, 5])) // => [3]
+// console.log(arrayDiff([3, 4], [4, 3])) // => []
 
 
 
+const COMPLEMENTS = {
+  'A': 'T',
+  'T': 'A',
+  'C': 'G',
+  'G': 'C'
+};
 
+// return the complementary dna strand given one side
+
+function DNAStrand(dna){
+  return dna.split('').map(chr => {
+    return COMPLEMENTS[chr];
+  }).join('');
+}
+
+// console.log(DNAStrand('ATGC')) // => 'TACG'
+
+
+// given a string of numbers
+// return the normalized idx of the element
+// that is not like the others
+function iqTest(numbers){
+  // convert input to array of integers
+  numbers = numbers.split(' ').map(el => parseInt(el));
+
+  // extract even and odd elements
+  const odds = numbers.filter(el => (el % 2) === 1);
+  const even = numbers.filter(el => (el % 2) === 0);
+
+  // return idx of even element if more odds than evens
+  if (odds.length > even.length) return numbers.indexOf(even[0]) + 1;
+  // return idx of odd element 
+  return numbers.indexOf(odds[0]) + 1;
+}
+
+//                  1,2,3,4
+console.log(iqTest('2 3 4 6')); // => idx 2 
+console.log(iqTest('1 3 5 6')); // => idx 4 
 
 
 
