@@ -241,13 +241,46 @@ function iqTest(numbers){
 }
 
 //                  1,2,3,4
-console.log(iqTest('2 3 4 6')); // => idx 2 
-console.log(iqTest('1 3 5 6')); // => idx 4 
+// console.log(iqTest('2 3 4 6')); // => idx 2 
+// console.log(iqTest('1 3 5 6')); // => idx 4 
 
+function moveZeros(arr) {
+  const res = arr.filter(el => el !== 0);
 
+  while (res.length <= arr.length) {
+    res.push(0);
+  }
+  
+  return res;
+}
 
+function moveZerosBETTER(arr) {
+  return arr
+    .filter(el => el !== 0)
+    .concat(arr.filter(el => el === 0));
+}
 
+// console.log(moveZeros([1, 2, 0, 0, 3, 4, 0, 5])); 
+// => [1, 2, 3, 4, 5, 0, 0, 0]
 
+// console.log(moveZerosBETTER([1, 0, 2, 0, 3, 0]));
+
+// return string with even idx chr as uppercase
+// reset idx with every new word
+function toWeirdCase(string){
+  return string.split(' ').map(word => {
+    return word.split('').map((chr, idx) => {
+      if (idx % 2 === 0) {
+        return chr.toUpperCase();
+      } else {
+        return chr;
+      }
+    }).join('');
+  }).join(' ');
+}
+
+console.log(toWeirdCase('helloworld'))  // => 'HeLlOwOrLd'
+console.log(toWeirdCase('hello world')) // => 'HeLlO WoRlD'
 
 
 
