@@ -240,7 +240,7 @@ function iqTest(numbers){
   return numbers.indexOf(odds[0]) + 1;
 }
 
-//                  1,2,3,4
+//                     1,2,3,4
 // console.log(iqTest('2 3 4 6')); // => idx 2 
 // console.log(iqTest('1 3 5 6')); // => idx 4 
 
@@ -279,10 +279,18 @@ function toWeirdCase(string){
   }).join(' ');
 }
 
-console.log(toWeirdCase('helloworld'))  // => 'HeLlOwOrLd'
-console.log(toWeirdCase('hello world')) // => 'HeLlO WoRlD'
+// console.log(toWeirdCase('helloworld'))  // => 'HeLlOwOrLd'
+// console.log(toWeirdCase('hello world')) // => 'HeLlO WoRlD'
 
+// given an array of 1 thru a
+// rotate array n times ~ assumed n is > 1
+function rotateLeft(a, n) {
+  const arr = Array.from({length: a}, (v, k) => k + 1);
+  return arr.slice(n, a).concat(arr.slice(0,n))
+}
 
+console.log(rotateLeft(5, 4)); // => [5, 1, 2, 3 , 4]
+console.log(rotateLeft(5, 1)); // => [2, 3 , 4, 5, 1]
 
 
 
