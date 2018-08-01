@@ -285,17 +285,110 @@ function toWeirdCase(string){
 // given an array of 1 thru a
 // rotate array n times ~ assumed n is > 1
 function rotateLeft(a, n) {
+  // Array.from es6
   const arr = Array.from({length: a}, (v, k) => k + 1);
   return arr.slice(n, a).concat(arr.slice(0,n))
 }
 
-console.log(rotateLeft(5, 4)); // => [5, 1, 2, 3 , 4]
-console.log(rotateLeft(5, 1)); // => [2, 3 , 4, 5, 1]
+// console.log(rotateLeft(5, 4)); // => [5, 1, 2, 3 , 4]
+// console.log(rotateLeft(5, 1)); // => [2, 3 , 4, 5, 1]
+
+function expandedForm(num) {
+  const res = num.toString()
+                .split('')
+                .reverse()
+                .map((el, idx) => (el * (10**idx)));
+
+  return res.reverse().filter(el => el !== 0).join(' + ');
+}
+
+// console.log(expandedForm(12)); // => "10 + 2"
+// console.log(expandedForm(42)); // => "40 + 2"
+// console.log(expandedForm(70304)); // => "70000 + 300 + 4"
 
 
 
+function isValidIP(str) {
+  const octet = str.split('.');
+  if (octet.length !== 4) return false;
+  
+  const res = octet.filter (el => el < 256);
+  
+  return (res.length === 4) ? true : false
+}
+
+// console.log(isValidIP('1.2.3.4'))
+// console.log(isValidIP('123.45.67.89'))
+// console.log(isValidIP('432.45.67.89'))
+// console.log(isValidIP('45.67.89'))
+
+/*
+ Noisy Thief
+
+ There are n houses built in a line,
+ each of which contains some value in it.
+ You are a thief who wants to steal the maximal value of these houses, but you can’t
+ steal from two adjacent houses because you are a loud thief, and
+ stealing from one house notifies the two adjacent houses.
+
+ Given an array of house values, find the maximum amount you can steal given those
+ constraints
+
+ maxStolenValue([1, 2, 3, 1]) -> 4
+*/
+
+// track sum
+// iterate over the array
+// compare two items, pick the largest
+// continue until the end
+
+// create array to track prev values
+// for a given idx select the largest of two sums 
+// for the current idx and prev values
+
+function maxStolenValue(arr) {
+  let prev = [arr[0], arr[1]];  
+  for (let i = 2; i < arr.length; i++) {
+    switch (arr[i] <=> arr[i+1]) {
+      when -1:
+        console.log(-1);
+      when 0:
+        console.log(0);
+      when 1:
+        console.log(1);
+    }
+  }
+  
+  return prev[prev.length - 1];
+}
 
 
+/*
+  this way doesn't work because in scenarios like the second case,
+  the 1 values need to be omitted entirely.
+
+  this means the solution includes a case where the 3rd & 4th item is checked
+  if the two values are the same
+*/
+
+// function maxStolenValue(arr) {
+//   let sum = 0;
+  
+//   for (let i = 0; i < arr.length - 2; i++) {
+//     // console.log(sum)
+
+//     if (arr[i] >= arr[i + 1]) {
+//       console.log("left: " + arr[i])
+//     } else {
+//       console.log("right: " + arr[i + 1])
+//     }
+//   }
+  
+//   return sum;
+// }
+
+console.log(maxStolenValue([1, 2, 3, 1]));       // => [1, 3] = 4
+console.log(maxStolenValue([2, 1, 1, 7, 8, 9])); // => [2, 7, 9] = 18
 
 
 
