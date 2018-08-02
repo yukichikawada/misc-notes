@@ -346,20 +346,30 @@ function isValidIP(str) {
 // for a given idx select the largest of two sums 
 // for the current idx and prev values
 
-function maxStolenValue(arr) {
-  let prev = [arr[0], arr[1]];  
-  for (let i = 2; i < arr.length; i++) {
-    switch (arr[i] <=> arr[i+1]) {
-      when -1:
-        console.log(-1);
-      when 0:
-        console.log(0);
-      when 1:
-        console.log(1);
-    }
-  }
+// function maxStolenValue(arr) {
+//   let prev = [arr[0], arr[1]];  
+//   for (let i = 2; i < arr.length; i++) {
+//     switch (compare(arr[i], arr[i+1])) {
+//       case -1:
+//         console.log(-1);
+//       case 0:
+//         console.log(0);
+//       case 1:
+//         console.log(1);
+//     }
+//   }
   
-  return prev[prev.length - 1];
+//   return prev[prev.length - 1];
+// }
+
+function compare(a, b) {
+  if (a === b) {
+    return 0;
+  } else if (a < b) {
+    return -1;
+  } else {
+    return 1;
+  }
 }
 
 
@@ -369,23 +379,33 @@ function maxStolenValue(arr) {
 
   this means the solution includes a case where the 3rd & 4th item is checked
   if the two values are the same
+
+  This way doesn't work bc in the first example, it's better to start with
+  the lesser value.
 */
 
-// function maxStolenValue(arr) {
-//   let sum = 0;
-  
-//   for (let i = 0; i < arr.length - 2; i++) {
-//     // console.log(sum)
 
-//     if (arr[i] >= arr[i + 1]) {
-//       console.log("left: " + arr[i])
-//     } else {
-//       console.log("right: " + arr[i + 1])
-//     }
-//   }
+function maxStolenValue(arr) {
+  let sum = 0;
   
-//   return sum;
-// }
+  for (let i = 0; i < arr.length; i += 2) {
+    if (typeof arr[i + 1] !== 'undefined') {
+      if ( arr[i] >= arr[i + 1]) {
+        console.log("number: " + arr[i])
+        sum += arr[i];
+      } else {
+        console.log("number: " + arr[i + 1])
+        sum += arr[i + 1];
+        i++;
+      }
+    } else {
+      console.log("else block: " + arr[i]);
+      sum += arr[i];
+    }
+  }
+  
+  return sum;
+}
 
 console.log(maxStolenValue([1, 2, 3, 1]));       // => [1, 3] = 4
 console.log(maxStolenValue([2, 1, 1, 7, 8, 9])); // => [2, 7, 9] = 18
