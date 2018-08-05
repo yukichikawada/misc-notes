@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>html scrapper</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    div.content {
+      margin: 0;
+    }
+    .content {
+      margin-left: 20px;
+      background-color: lightgrey;
+    }
+    .first {
+      margin-left: 20px;
+      background-color: yellow;
+    }
+    .second {
+      margin-left: 20px;
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Header 1 title</h1>
+    <div class="content">
+      <div class="first">
+        <h2 class="subheading">Subheading</h2>
+        <article>
+          <h3>Paragraph 1 title</h3>
+          Write a function that extracts and reverses all the text on the page
+          given a node.
+        </article>
+      </div>
+
+      <div class="first">
+        <h2>Double nested</h2>
+        How much wood could
+        <div class="second">
+          <h3>Could a woodchuck chuck</h3>
+          if a wood chuck could chuck wood
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+    let node = document.getElementById("container");
+    let notes = [];
+    for (let i = 0; i < node.childNodes.length; i++) {
+      notes.push(node.childNodes[i]);
+      console.log(node.childNodes[i]);
+    }
+
+  </script>
+</body>
+</html>
