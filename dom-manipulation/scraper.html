@@ -23,6 +23,11 @@
       margin-left: 20px;
       background-color: orange;
     }
+
+    #result  {
+      background-color: lightgreen;
+      padding: 10px;
+    }
   </style>
 </head>
 <body>
@@ -33,21 +38,25 @@
         <h2 class="subheading">Subheading</h2>
         <article>
           <h3>Paragraph 1 title</h3>
-          Write a function that extracts and reverses all the text on the page
-          given a node.
+          <p>
+            Write a function that extracts and reverses all the text on the page
+            given a node.
+          </p>
         </article>
       </div>
 
       <div class="first">
         <h2>Double nested</h2>
-        How much wood could
+        <p>How much wood could</p>
         <div class="second">
           <h3>Could a woodchuck chuck</h3>
-          if a wood chuck could chuck wood
+          <p>if a wood chuck could chuck wood</p>
         </div>
       </div>
     </div>
   </div>
+
+  <div id="result"></div>
 
 
   <script type="text/javascript" src="scraper.js"></script>

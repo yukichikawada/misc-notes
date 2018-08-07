@@ -1,28 +1,29 @@
+const nodesInnerText = [];
+
 function getText(node) {
+  // if no childNodes, extract innerText
   if (node.length === 1) {
-    return node[0].innerText;
+    nodesInnerText.push(node.innerText);
   } else {
     node.childNodes.forEach((el, idx) => {
-      console.log([el, idx]);
+      // if no childNodes, extract innerText
       if (el.childElementCount === 0) {
-        console.log('innerText');
-        // return el.innerText;
+        nodesInnerText.push(el.innerText);
       } else {
-        console.log('recursive call');
-        return getText(el);
+        // recurse on node with childNodes
+        getText(el);
       }
     });
   }
 }
 
 
-
 let node = document.getElementById("container");
 
-console.log(getText(node));
+getText(node);
 
-// let notes = [];
-// for (let i = 0; i < node.childElementCount; i++) {
-//   console.log(i);
-// }
+console.log(nodesInnerText);
 
+let resultNode = document.getElementById("result");
+
+resultNode.innerText = nodesInnerText.reverse();
