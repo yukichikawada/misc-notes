@@ -17,13 +17,12 @@ function getText(node) {
   }
 }
 
-
+// select base node to call function on
 let node = document.getElementById("container");
 
 getText(node);
 
-console.log(nodesInnerText);
-
+// select node to display results on
 let resultNode = document.getElementById("result");
 
 resultNode.innerText = nodesInnerText.reverse();

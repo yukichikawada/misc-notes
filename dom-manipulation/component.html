@@ -2,14 +2,74 @@
 <html>
 <head>
   <title>reusable component</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background-color: lightgrey;
+    }
+    .container {
+      width: 600px;
+      padding-top: 40px;
+      margin: auto;
+    }
+    .cardComponent {
+      border: 1px solid grey;
+      border-radius: 5px;
+      padding: 25px;
+      margin-top: 10px;
+      display: flex;
+    }
+    .rightColumn {
+      margin-left: 20px;
+    }
+    .username {
+      margin: 0;
+      font-size: 24px;
+    }
+    .userInfo {
+      display: flex;
+    }
+    .userAttr {
+      padding-left: 0;
+    }
+    li {
+      list-style-type: none;
+      font-size: 16px;
+    }
+    .userData {
+      padding-left: 10px;
+    }
+  </style>
 </head>
 <body>
-  <!-- write a reusable component in vanilla js -->
-  <script type="text/javascript">
-  </script>
-  <div class="cardComponent">
-    <div class="leftColumn">left</div>
-    <div class="rightColumn">right</div>
+  <div class="container">
+    
+    <div class="cardComponent">
+      <div class="leftColumn">
+        <img src="" alt="alt">
+      </div>
+      <div class="rightColumn">
+        <h2 class="username">{{user.firstName}}</h2>
+        <h2 class="username">{{user.lastName}}</h2>
+        <article class="userInfo">
+          <ul class="userAttr">
+            <li>Height</li>
+            <li>Weight</li>
+            <li>Age</li>
+          </ul>
+
+          <ul class="userData">
+            <li>{{user.height}}</li>
+            <li>{{user.weight}}</li>
+            <li>{{user.age}}</li>
+          </ul>
+        </article>
+      </div>
+    </div>
   </div>
+
+  <script type="text/javascript" src="component.js"></script>
 </body>
 </html>
