@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+div.content {
+  margin: 0;
+}
+.content {
+  margin-left: 20px;
+  background-color: lightgrey;
+}
+.first {
+  margin-left: 20px;
+  background-color: yellow;
+}
+.second {
+  margin-left: 20px;
+  background-color: orange;
+}
+
+#result  {
+  background-color: lightgreen;
+  padding: 10px;
+}
