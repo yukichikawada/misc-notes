@@ -42,10 +42,27 @@ def longest(arr)
   record
 end
 
-puts "longest continous sequence of 1's"
-puts "0 => 0: " + (0 == longest_continuous_binary(0)).to_s
-puts "1 => 1: " + (1 == longest_continuous_binary(1)).to_s
-puts "75 => 2: " + (2 == longest_continuous_binary(75)).to_s
-puts "71 => 3: " + (3 == longest_continuous_binary(71)).to_s
-puts "2928018016900296589618184185 => 37: " + 
-  (37 == longest_continuous_binary(2928018016900296589618184185)).to_s
+# puts "longest continous sequence of 1's"
+# puts "0 => 0: " + (0 == longest_continuous_binary(0)).to_s
+# puts "1 => 1: " + (1 == longest_continuous_binary(1)).to_s
+# puts "75 => 2: " + (2 == longest_continuous_binary(75)).to_s
+# puts "71 => 3: " + (3 == longest_continuous_binary(71)).to_s
+# puts "2928018016900296589618184185 => 37: " + 
+#   (37 == longest_continuous_binary(2928018016900296589618184185)).to_s
+
+def most_chars(str)
+  hash = Hash.new(0)
+  str.each_char { |chr| hash[chr] += 1 if chr != ' ' }
+   
+  hi_chr = ''
+  count  = 0
+  hash.each do |k, v|
+    if v > count
+      hi_chr, count = k, v
+    end
+  end
+    
+  hi_chr
+end
+
+puts most_chars('hello world')
