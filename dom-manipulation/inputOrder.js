@@ -18,22 +18,21 @@ function inputValues() {
     // loop over each input field creating k,v pairs of classname and value
     // return an array of k,v pairs sorted on v being the lowest, last item highest v
     // write helper method that sorts k,v pairs
-
-    console.log('heeee')
     const pairs = [];
     INPUTFIELDS.forEach(el => {
         let pair = [el];
         let val = document.getElementById(el).value;
         if (typeof val === 'undefined') val = 9;
         pair.push(val);
+        pairs.push(pair);
     });
     
     const sortedPairs = sortKVPairs(pairs);
-    return sortedPairs;
+    return sortedPairs.reverse();
 }
 
 function sortKVPairs(arr) {
-    arr.sort((a,b) => {
+    return arr.sort((a,b) => {
         return a[1] - b[1];
     })
 }
@@ -45,9 +44,9 @@ const CLASSNAMES = [
 
 function assignClassNames(array) {
     array.forEach((el, idx) => {
-        let input = document.getElementByClassName(el);
+        let input = document.getElementById(el[0]);
         let addedClass = CLASSNAMES[idx];
-        input.classList.Add(addedClass);
+        input.classList.add(addedClass);
     })
 }
 
