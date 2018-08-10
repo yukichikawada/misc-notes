@@ -1,17 +1,9 @@
-// document.addEventListener('DOMContentLoaded',function() {
-//     document.querySelector('select[name="ice-cream"]').onchange=changeEventHandler;
-// },false);
-
-// function changeEventHandler(event) {
-//     // You can use “this” to refer to the selected element.
-//     if(!event.target.value) alert('Please Select One');
-//     else alert('You like ' + event.target.value + ' ice cream.'); 
-// }
 function changeEventHandler(event) {
-    let inputs = inputValues();
-    assignClassNames(inputs);
+    let values = inputValues();
+    assignClassNames(values);
 }
 
+// id value of input fields whose order will be reassigned onChange
 const INPUTFIELDS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
 
 function inputValues() {
@@ -22,21 +14,24 @@ function inputValues() {
     INPUTFIELDS.forEach(el => {
         let pair = [el];
         let val = document.getElementById(el).value;
-        if (typeof val === 'undefined') val = 9;
+        // if no value, empty fields appear at bottom of list
+        // hence, assign value of 9
+        if (val === '') val = 9;
         pair.push(val);
         pairs.push(pair);
     });
     
     const sortedPairs = sortKVPairs(pairs);
-    return sortedPairs.reverse();
+    return sortedPairs;
 }
 
 function sortKVPairs(arr) {
     return arr.sort((a,b) => {
         return a[1] - b[1];
-    })
+    });
 }
 
+// classnames corresponding to css rules designating order
 const CLASSNAMES = [
     "one", "two", "three", "four", "five",
     "six", "seven", "eight", "nine"
@@ -45,19 +40,16 @@ const CLASSNAMES = [
 function assignClassNames(array) {
     array.forEach((el, idx) => {
         let input = document.getElementById(el[0]);
-        let addedClass = CLASSNAMES[idx];
-        input.classList.add(addedClass);
-    })
+        // clear classList
+        input.classList = '';
+        // add currently appropriate classname
+        input.classList = CLASSNAMES[idx];
+    });
 }
 
 document.addEventListener('DOMContentLoaded', (e) => {
     let content = document.getElementById('container');
 
     content.addEventListener('input', (e) => changeEventHandler(e));
-})
+});
 
-
-
-let pair = {};
-pair['d'] = document.getElementById("d").value;
-console.log(pair);
