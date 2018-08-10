@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    input {
+      display: block;
+    }
+    .container > .one   {order: 1;}
+    .container > .two   {order: 2;}
+    .container > .three {order: 3;}
+    .container > .four  {order: 4;}
+    .container > .five  {order: 5;}
+    .container > .six   {order: 6;}
+    .container > .seven {order: 7;}
+    .container > .eight {order: 8;}
+    .container > .nine  {order: 9;}
+    </style>
+</head>
+<body>
+  <label>Choose an ice cream flavor:
+    <select id="ice-cream" name="ice-cream">
+        <option value="">Select One …</option>
+        <option value="chocolate">Chocolate</option>
+        <option value="strawberry">Strawberry</option>
+        <option value="vanilla">Vanilla</option>
+    </select>
+</label>
+    <div>
+        <form id="container">
+            <input class="a" type="number" min="1" max="9" />
+            <input class="b" type="number" min="1" max="9" />
+            <input class="c" type="number" min="1" max="9" />
+            <input class="d" type="number" min="1" max="9" />
+            <input class="e" type="number" min="1" max="9" />
+            <input class="f" type="number" min="1" max="9" />
+            <input class="g" type="number" min="1" max="9" />
+            <input class="h" type="number" min="1" max="9" />
+            <input class="i" type="number" min="1" max="9" />
+        </form>
+    </div>
+</body>
+</html>
+
+
