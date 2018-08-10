@@ -3,26 +3,24 @@ function changeEventHandler(event) {
     assignClassNames(values);
 }
 
+
+
 // id value of input fields whose order will be reassigned onChange
 const INPUTFIELDS = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
 
 function inputValues() {
     // loop over each input field creating k,v pairs of classname and value
-    // return an array of k,v pairs sorted on v being the lowest, last item highest v
-    // write helper method that sorts k,v pairs
+    // return an array of k,v pairs sorted on v being the lowest
     const pairs = [];
     INPUTFIELDS.forEach(el => {
-        let pair = [el];
         let val = document.getElementById(el).value;
         // if no value, empty fields appear at bottom of list
         // hence, assign value of 9
         if (val === '') val = 9;
-        pair.push(val);
-        pairs.push(pair);
+        pairs.push([el, val]);
     });
     
-    const sortedPairs = sortKVPairs(pairs);
-    return sortedPairs;
+    return sortKVPairs(pairs);
 }
 
 function sortKVPairs(arr) {
@@ -31,10 +29,11 @@ function sortKVPairs(arr) {
     });
 }
 
+
+
 // classnames corresponding to css rules designating order
 const CLASSNAMES = [
-    "one", "two", "three", "four", "five",
-    "six", "seven", "eight", "nine"
+    "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"
 ];
 
 function assignClassNames(array) {
@@ -47,9 +46,11 @@ function assignClassNames(array) {
     });
 }
 
+
+
+// eventListener that gets everything started
 document.addEventListener('DOMContentLoaded', (e) => {
     let content = document.getElementById('container');
-
+    // attach eventListener on entire node rather than each individual input
     content.addEventListener('input', (e) => changeEventHandler(e));
 });
-
