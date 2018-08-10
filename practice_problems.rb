@@ -65,4 +65,73 @@ def most_chars(str)
   hi_chr
 end
 
-puts most_chars('hello world')
+# puts most_chars('hello world')
+
+
+def more_than_half(arr)
+  n = arr.length
+  l = [-1] + arr
+  count = 0
+  pos = (n + 1) / 2
+  candidate = l[pos]
+  (n).times do |i|
+    if l[i+1] == candidate
+      count += 1
+    end
+
+    if (2*count > n)
+      return candidate
+    end
+  end
+  -1
+end
+
+# puts more_than_half([1, 1, 1, 2, 2])
+# puts more_than_half([1, 1, 2, 2])
+# puts more_than_half([1, 1, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 4])
+# puts more_than_half([1, 1, 2, 2, 3, 3, 3, 3, 3, 4])
+
+def not_included(arr) 
+  hash = Hash.new(0)
+  arr.each { |el| hash[el] = 0 }
+  i = 1
+  # hash[5] == 0
+  while true
+    return i unless hash.has_key?(i)
+    i += 1
+  end
+end
+
+# puts not_included([1, 2, 3, 4]) # => 5
+# puts not_included([0, 1, 3, 4]) # => 2
+
+def solution(a)
+  ans = 0
+  for i in 1 .. (a.length - 1)
+    ans += a[i]
+  end 
+  ans
+end
+
+def summteset(arr) 
+  sum = 0
+  arr.each do |el|
+    case el 
+    when -99..-10
+      puts el
+      sum += el 
+    when 10..99
+      puts el
+      sum += el
+    end
+  end
+
+  sum
+end
+
+# puts summteset([1, 10, 90])
+# puts summteset([1, -10, -90])
+# puts summteset([-10, -100, -99, 10, 99])
+
+
+
