@@ -1,6 +1,6 @@
 # Misc Notes
 
-A repo of fun facts to beef up my programming knowledge base.
+A repo of fun facts and exercises.
 
 ## Acknowledgments
 
