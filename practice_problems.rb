@@ -134,4 +134,57 @@ end
 # puts summteset([-10, -100, -99, 10, 99])
 
 
+# given an array of strings, return the n longest combination of consecutive strings
+def longest_consec(arr, n)
+  return '' if n == 0
+
+  record = 0
+  best_idx = 0
+  arr.each_index do |idx|
+    crop = arr[idx...(idx + n)]
+    current = crop.reduce(0) { |acc, el| acc += el.length }
+    if current > record
+      record = current 
+      best_idx = idx
+    end
+  end
+
+  arr[best_idx...(best_idx + n)].join('')
+end
+
+
+p longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 2) # 'agigailtheta'
+p longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 0) # ''
+p longest_consec(["zone", "abigail", "zas"], 1) # ''
+p longest_consec(["zone", "abigail", "zas"], 3) # ''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
