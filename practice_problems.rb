@@ -136,7 +136,7 @@ end
 
 # given an array of strings, return the n longest combination of consecutive strings
 def longest_consec(arr, n)
-  return '' if n == 0
+  return '' if (n < 1 || n > arr.length)
 
   record = 0
   best_idx = 0
@@ -155,8 +155,8 @@ end
 
 p longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 2) # 'agigailtheta'
 p longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 0) # ''
-p longest_consec(["zone", "abigail", "zas"], 1) # ''
-p longest_consec(["zone", "abigail", "zas"], 3) # ''
+p longest_consec(["zone", "abigail", "zas"], 1) # 'abigail'
+p longest_consec(["zone", "abigail", "zas"], 3) # 'zoneabigailzas'
 
 
 
