@@ -152,16 +152,70 @@ def longest_consec(arr, n)
   arr[best_idx...(best_idx + n)].join('')
 end
 
-
-p longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 2) # 'agigailtheta'
-p longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 0) # ''
-p longest_consec(["zone", "abigail", "zas"], 1) # 'abigail'
-p longest_consec(["zone", "abigail", "zas"], 3) # 'zoneabigailzas'
-
+# p longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 2) # 'agigailtheta'
+# p longest_consec(["zone", "abigail", "theta", "form", "libe", "zas"], 0) # ''
+# p longest_consec(["zone", "abigail", "zas"], 1) # 'abigail'
+# p longest_consec(["zone", "abigail", "zas"], 3) # 'zoneabigailzas'
 
 
 
+# given a hexidecimal string, convert to number
+# if number is square, return 1
+# else,
+#   if the hex string can be split to a sequence of squares, return the numbers of numbers
+#   else return -1
 
+# 1. transform string to number 
+# 2. if number is square, return 1
+# 3. recurse on combinations of string to find count or return -1
+def hex_string_square(str)
+  num = str.hex 
+  count = 1
+
+  if square?(num)
+    return 1
+  else
+
+    combos = combos(str)
+
+    combos.each do |combo|
+      if square?(combo[1].hex)
+        str.slice!(0, combo[0])
+
+        r_count = hex_string_square(str)
+
+        p r_count
+        # r_count > 1 ? (count += r_count) : -1
+      end
+    end
+  end
+
+  count > 1 ? count : -1
+end
+
+def square?(num)
+  (Math.sqrt(num) % 1).zero?
+end
+
+def combos(str)
+  idx, combos = 0, {}
+  
+  while idx < str.length - 1
+    combos[idx + 1] = str[0..idx]
+    idx += 1
+  end
+
+  combos
+end
+
+# p hex_string_square('896bb1') # => 1  // 896bb1 >> 9006001 which 3001 squared
+p hex_string_square('1a919')  # => 3  // 1a919  >> 1 + a9 + 19 >> [1, 169, 25].length
+# p hex_string_square('02')     # => -1 // not square
+
+# p combos('hello')
+# p combos('he')
+# p combos('h')
+# p combos('')
 
 
 
