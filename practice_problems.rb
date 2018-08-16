@@ -171,21 +171,20 @@ end
 # 2. if number is square, return 1
 # 3. recurse on combinations of string to find count or return -1
 def hex_string_square(str)
-  num = str.hex 
   count = 0
 
-  if square?(num)
+  if square?(str.hex)
     return 1
   else
     combos = combos(str)
 
-    combos.each do |combo|
-      if square?(combo[1].hex)
-        count = 1
-        current_str = str
-        current_str.slice!(0, combo[0])
+    combos.each do |combo|      # combo is a k,v pair turned into an array
+      if square?(combo[1].hex)  # hence combo[1] => str to be converted to hex
+        count = 1               # is square so increment count
+        current_str = str       # alias str for a comparison to be made later
+        current_str.slice!(0, combo[0]) # slice alias to recurse on remainder
         
-        r_count = hex_string_square(current_str)
+        r_count = hex_string_square(current_str) # momoize recursed value
         
         if r_count > 0
           count += r_count
@@ -196,6 +195,7 @@ def hex_string_square(str)
         end
       end
     end
+    
   end
 
   count > 0 ? count : -1
@@ -206,6 +206,9 @@ def square?(num)
 end
 
 def combos(str)
+  # hash key: is index, value: is a slice of string til index
+  # so each value fragment can be tested for #square?
+  # and key is a reference to how much to slice for next combo
   idx, combos = 0, {}
   
   while idx < str.length - 1
@@ -217,12 +220,12 @@ def combos(str)
 end
 
 # simple cases
-# p hex_string_square('896bb1') # => 1  // 896bb1 >> 9006001 which 3001 squared
-# p hex_string_square('1a919')  # => 3  // 1a919  >> 1 + a9 + 19 >> [1, 169, 25].length
-# p hex_string_square('02')     # => -1 // not square
+p hex_string_square('896bb1') # => 1  // 896bb1 >> 9006001 which 3001 squared
+p hex_string_square('1a919')  # => 3  // 1a919  >> 1 + a9 + 19 >> [1, 169, 25].length
+p hex_string_square('02')     # => -1 // not square
 
 # bigger cases
-# p hex_string_square('896bb11a919') # => 4 
+p hex_string_square('896bb11a919') # => 4 
 p hex_string_square('896bb11a9192') # => -1 // 9443476613401 // not square
 
 
