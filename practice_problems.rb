@@ -177,22 +177,28 @@ def hex_string_square(str)
   if square?(num)
     return 1
   else
-
     combos = combos(str)
 
     combos.each do |combo|
       if square?(combo[1].hex)
         count = 1
-        str.slice!(0, combo[0])
-
-        r_count = hex_string_square(str)
-
-        r_count > 0 ? (count += r_count) : -1
+        current_str = str
+        current_str.slice!(0, combo[0])
+        
+        r_count = hex_string_square(current_str)
+        
+        if r_count > 0
+          count += r_count
+        elsif current_str == str # on last permutation
+          return -1
+        else                     # try next permutation, reset count
+          count = 0
+        end
       end
     end
   end
 
-  count > 1 ? count : -1
+  count > 0 ? count : -1
 end
 
 def square?(num)
@@ -210,10 +216,14 @@ def combos(str)
   combos
 end
 
-p hex_string_square('896bb1') # => 1  // 896bb1 >> 9006001 which 3001 squared
-p hex_string_square('1a919')  # => 3  // 1a919  >> 1 + a9 + 19 >> [1, 169, 25].length
-p hex_string_square('02')     # => -1 // not square
-p hex_string_square('896bb11a919')
+# simple cases
+# p hex_string_square('896bb1') # => 1  // 896bb1 >> 9006001 which 3001 squared
+# p hex_string_square('1a919')  # => 3  // 1a919  >> 1 + a9 + 19 >> [1, 169, 25].length
+# p hex_string_square('02')     # => -1 // not square
+
+# bigger cases
+# p hex_string_square('896bb11a919') # => 4 
+p hex_string_square('896bb11a9192') # => -1 // 9443476613401 // not square
 
 
 
