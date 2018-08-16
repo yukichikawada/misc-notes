@@ -1,3 +1,5 @@
+require 'byebug'
+
 # given a number, return the length of the longest
 # continuous sequence of 1's when converted to binary
 
@@ -170,7 +172,7 @@ end
 # 3. recurse on combinations of string to find count or return -1
 def hex_string_square(str)
   num = str.hex 
-  count = 1
+  count = 0
 
   if square?(num)
     return 1
@@ -180,12 +182,12 @@ def hex_string_square(str)
 
     combos.each do |combo|
       if square?(combo[1].hex)
+        count = 1
         str.slice!(0, combo[0])
 
         r_count = hex_string_square(str)
 
-        p r_count
-        # r_count > 1 ? (count += r_count) : -1
+        r_count > 0 ? (count += r_count) : -1
       end
     end
   end
@@ -208,14 +210,10 @@ def combos(str)
   combos
 end
 
-# p hex_string_square('896bb1') # => 1  // 896bb1 >> 9006001 which 3001 squared
+p hex_string_square('896bb1') # => 1  // 896bb1 >> 9006001 which 3001 squared
 p hex_string_square('1a919')  # => 3  // 1a919  >> 1 + a9 + 19 >> [1, 169, 25].length
-# p hex_string_square('02')     # => -1 // not square
-
-# p combos('hello')
-# p combos('he')
-# p combos('h')
-# p combos('')
+p hex_string_square('02')     # => -1 // not square
+p hex_string_square('896bb11a919')
 
 
 
