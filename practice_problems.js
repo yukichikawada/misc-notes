@@ -337,18 +337,19 @@ function isValidIP(str) {
 */
 
 // track sum
-// iterate over the array
-// compare two items, pick the largest
-// continue until the end
+// iterate over the array, with nested loops
+// compare two items arr[idx+2] & arr[idx+3]
+// out of 4 scenarios, there are three when left (idx + 2) should be selected
+// 1.) left is >= right
+// 2.) 4th from idx is greater than sum of 2nd + 3rd from idx
+// 3.) there isn't an item at right idx
+// if current sum is greater than record, reset record to current
 
-// create array to track prev values
-// for a given idx select the largest of two sums 
-// for the current idx and prev values
 
 function maxStolenValue(arr) {
-  let record = 0;
+  let record = arr[0];
 
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < 2; i++) {
     let current = arr[i];
 
     for (let j = i+2; j < arr.length; j++) {
@@ -382,10 +383,17 @@ function compare(a, b) {
   }
 }
 
-
+// 1.) pick left item simple
 console.log(maxStolenValue([1, 2, 3, 1]));       // => [1, 3] = 4
+// 4.) pick right item
 console.log(maxStolenValue([2, 1, 1, 7, 8, 9])); // => [2, 7, 9] = 18
-console.log(maxStolenValue([1, 1, 7, 8, 19])); // => [1, 7, 19] = 27
+// 2.) pick left item advanced case bc sum L+R < 3rd idx
+// 3.) pick left item bc right idx is out of range 
+console.log(maxStolenValue([1, 1, 7, 8, 19]));   // => [1, 7, 19] = 27
+
+// edge cases
+console.log(maxStolenValue([1]))                 // => 1
+console.log(maxStolenValue([1, 2]))              // => 2
 
 
 /*
