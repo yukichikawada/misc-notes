@@ -220,13 +220,13 @@ def combos(str)
 end
 
 # simple cases
-p hex_string_square('896bb1') # => 1  // 896bb1 >> 9006001 which 3001 squared
-p hex_string_square('1a919')  # => 3  // 1a919  >> 1 + a9 + 19 >> [1, 169, 25].length
-p hex_string_square('02')     # => -1 // not square
+# p hex_string_square('896bb1') # => 1  // 896bb1 >> 9006001 which 3001 squared
+# p hex_string_square('1a919')  # => 3  // 1a919  >> 1 + a9 + 19 >> [1, 169, 25].length
+# p hex_string_square('02')     # => -1 // not square
 
 # bigger cases
-p hex_string_square('896bb11a919') # => 4 
-p hex_string_square('896bb11a9192') # => -1 // 9443476613401 // not square
+# p hex_string_square('896bb11a919') # => 4 
+# p hex_string_square('896bb11a9192') # => -1 // 9443476613401 // not square
 
 
 

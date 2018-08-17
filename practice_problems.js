@@ -325,14 +325,13 @@ function isValidIP(str) {
 /*
  Noisy Thief
 
- There are n houses built in a line,
- each of which contains some value in it.
- You are a thief who wants to steal the maximal value of these houses, but you can’t
- steal from two adjacent houses because you are a loud thief, and
+ There are n houses built in a line, each of which contains some value in it.
+ You are a thief who wants to steal the maximal value of these houses, but 
+ you can’t steal from two adjacent houses because you are a loud thief, and
  stealing from one house notifies the two adjacent houses.
 
- Given an array of house values, find the maximum amount you can steal given those
- constraints
+ Given an array of house values, find the maximum amount you can steal given
+ those constraints
 
  maxStolenValue([1, 2, 3, 1]) -> 4
 */
@@ -346,21 +345,32 @@ function isValidIP(str) {
 // for a given idx select the largest of two sums 
 // for the current idx and prev values
 
-// function maxStolenValue(arr) {
-//   let prev = [arr[0], arr[1]];  
-//   for (let i = 2; i < arr.length; i++) {
-//     switch (compare(arr[i], arr[i+1])) {
-//       case -1:
-//         console.log(-1);
-//       case 0:
-//         console.log(0);
-//       case 1:
-//         console.log(1);
-//     }
-//   }
-  
-//   return prev[prev.length - 1];
-// }
+function maxStolenValue(arr) {
+  let record = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let current = arr[i];
+
+    for (let j = i+2; j < arr.length; j++) {
+      if (arr[j] >= arr[j+1]) {
+        current += arr[j];
+        j++;
+      } else if (arr[j+2] > arr[j] + arr[j+1]) {
+        current += arr[j];
+        j++;
+      } else if (typeof arr[j+1] === 'undefined') {
+        current += arr[j];
+      } else {
+        current += arr[j+1];
+        j++;
+      }
+    }
+
+    if (current > record) record = current;
+  }
+
+  return record
+}
 
 function compare(a, b) {
   if (a === b) {
@@ -371,6 +381,11 @@ function compare(a, b) {
     return 1;
   }
 }
+
+
+console.log(maxStolenValue([1, 2, 3, 1]));       // => [1, 3] = 4
+console.log(maxStolenValue([2, 1, 1, 7, 8, 9])); // => [2, 7, 9] = 18
+console.log(maxStolenValue([1, 1, 7, 8, 19])); // => [1, 7, 19] = 27
 
 
 /*
@@ -385,30 +400,28 @@ function compare(a, b) {
 */
 
 
-function maxStolenValue(arr) {
-  let sum = 0;
+// function maxStolenValue(arr) {
+//   let sum = 0;
   
-  for (let i = 0; i < arr.length; i += 2) {
-    if (typeof arr[i + 1] !== 'undefined') {
-      if ( arr[i] >= arr[i + 1]) {
-        console.log("number: " + arr[i])
-        sum += arr[i];
-      } else {
-        console.log("number: " + arr[i + 1])
-        sum += arr[i + 1];
-        i++;
-      }
-    } else {
-      console.log("else block: " + arr[i]);
-      sum += arr[i];
-    }
-  }
+//   for (let i = 0; i < arr.length; i += 2) {
+//     if (typeof arr[i + 1] !== 'undefined') {
+//       if ( arr[i] >= arr[i + 1]) {
+//         console.log("number: " + arr[i])
+//         sum += arr[i];
+//       } else {
+//         console.log("number: " + arr[i + 1])
+//         sum += arr[i + 1];
+//         i++;
+//       }
+//     } else {
+//       console.log("else block: " + arr[i]);
+//       sum += arr[i];
+//     }
+//   }
   
-  return sum;
-}
+//   return sum;
+// }
 
-console.log(maxStolenValue([1, 2, 3, 1]));       // => [1, 3] = 4
-console.log(maxStolenValue([2, 1, 1, 7, 8, 9])); // => [2, 7, 9] = 18
 
 
 
