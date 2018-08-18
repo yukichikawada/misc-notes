@@ -231,6 +231,36 @@ end
 
 
 
+# given n elements, return the last remaining number after removing every k-th
+
+# 1. establish an array of n elements
+# 2. 
+
+def josephus_survivor(n,k)
+  arr = (1..n).to_a
+
+  while arr.length > 1
+    idx = k % arr.length
+
+    if arr.length > k
+      arr = arr.drop(k) + arr.take(k - 1)
+    elsif arr.length == k    
+      arr = arr[0...-1]
+    else
+      arr = arr.drop(idx) + arr.take(idx - 1)
+    end
+  end
+  
+  arr[0]
+end
+
+puts josephus_survivor(7, 3)  # => 4
+puts josephus_survivor(11,19) # => 10
+puts josephus_survivor(1,300) # => 1
+puts josephus_survivor(14,2)  # => 13
+puts josephus_survivor(100,1) # => 1
+
+
 
 
 
