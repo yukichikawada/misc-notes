@@ -268,3 +268,7 @@ Promise API
 >   once they all resolve, in order of idx. It immediately fails if any promise
 >   are rejected, however other promises continue executing.
 > * Promise.race => takes an array of promises and returns the first one to finish, resolve or reject.
+
+##### misc
+.bash_profile is for shortcuts related to login information
+.bashrc is for the rest. Remember: git shortcuts here throws errors
