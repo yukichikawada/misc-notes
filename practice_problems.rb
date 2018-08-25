@@ -254,17 +254,21 @@ def josephus_survivor(n,k)
   arr[0]
 end
 
-puts josephus_survivor(7, 3)  # => 4
-puts josephus_survivor(11,19) # => 10
-puts josephus_survivor(1,300) # => 1
-puts josephus_survivor(14,2)  # => 13
-puts josephus_survivor(100,1) # => 1
+# puts josephus_survivor(7, 3)  # => 4
+# puts josephus_survivor(11,19) # => 10
+# puts josephus_survivor(1,300) # => 1
+# puts josephus_survivor(14,2)  # => 13
+# puts josephus_survivor(100,1) # => 1
 
+def permutations(string)
+  perms = []
+  combos = string.split('').permutation.to_a.map { |combo| combo.join('') }
+  combos.each { |combo| perms << combo if !perms.include?(combo) }
+  perms
+end
 
-
-
-
-
+p (permutations('ab').sort == ['ab', 'ba'])
+p (permutations('aabb').sort == ['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa'])
 
 
 

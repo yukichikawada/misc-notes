@@ -373,62 +373,19 @@ function maxStolenValue(arr) {
   return record
 }
 
-function compare(a, b) {
-  if (a === b) {
-    return 0;
-  } else if (a < b) {
-    return -1;
-  } else {
-    return 1;
-  }
-}
 
-// 1.) pick left item simple
-console.log(maxStolenValue([1, 2, 3, 1]));       // => [1, 3] = 4
-// 4.) pick right item
-console.log(maxStolenValue([2, 1, 1, 7, 8, 9])); // => [2, 7, 9] = 18
-// 2.) pick left item advanced case bc sum L+R < 3rd idx
-// 3.) pick left item bc right idx is out of range 
-console.log(maxStolenValue([1, 1, 7, 8, 19]));   // => [1, 7, 19] = 27
+// // 1.) pick left item simple
+// console.log(maxStolenValue([1, 2, 3, 1]));       // => [1, 3] = 4
+// // 4.) pick right item
+// console.log(maxStolenValue([2, 1, 1, 7, 8, 9])); // => [2, 7, 9] = 18
+// // 2.) pick left item advanced case bc sum L+R < 3rd idx
+// // 3.) pick left item bc right idx is out of range 
+// console.log(maxStolenValue([1, 1, 7, 8, 19]));   // => [1, 7, 19] = 27
 
-// edge cases
-console.log(maxStolenValue([1]))                 // => 1
-console.log(maxStolenValue([1, 2]))              // => 2
+// // edge cases
+// console.log(maxStolenValue([1]))                 // => 1
+// console.log(maxStolenValue([1, 2]))              // => 2
 
-
-/*
-  this way doesn't work because in scenarios like the second case,
-  the 1 values need to be omitted entirely.
-
-  this means the solution includes a case where the 3rd & 4th item is checked
-  if the two values are the same
-
-  This way doesn't work bc in the first example, it's better to start with
-  the lesser value.
-*/
-
-
-// function maxStolenValue(arr) {
-//   let sum = 0;
-  
-//   for (let i = 0; i < arr.length; i += 2) {
-//     if (typeof arr[i + 1] !== 'undefined') {
-//       if ( arr[i] >= arr[i + 1]) {
-//         console.log("number: " + arr[i])
-//         sum += arr[i];
-//       } else {
-//         console.log("number: " + arr[i + 1])
-//         sum += arr[i + 1];
-//         i++;
-//       }
-//     } else {
-//       console.log("else block: " + arr[i]);
-//       sum += arr[i];
-//     }
-//   }
-  
-//   return sum;
-// }
 
 
 
