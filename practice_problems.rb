@@ -267,10 +267,39 @@ def permutations(string)
   perms
 end
 
-p (permutations('ab').sort == ['ab', 'ba'])
-p (permutations('aabb').sort == ['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa'])
+# p (permutations('ab').sort == ['ab', 'ba'])
+# p (permutations('aabb').sort == ['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa'])
 
 
+
+
+# Complete the function/method (depending on the language) 
+# to return true/True when its argument is an array that has 
+# the same nesting structure as the first array.
+
+# count commas to establish length, + 1
+# establish second variable to increment in case inner loop
+# is at an integer rather than an array
+# if items at index match && is an array
+# recursively call method
+# elsif integer increment second variable and make comparisons until class.is_a
+# else return false
+
+class Array
+  def self.same_structure_as(arr)
+    count = self.to_s.count(',') + 1
+    place = 0
+    count.times do |idx|
+
+    end
+  end
+end
+
+# [ 1, 1, 1 ].same_structure_as( [ 2, 2, 2 ] ) # => true
+# [ 1, [ 1, 1 ] ].same_structure_as( [ 2, [ 2, 2 ] ] ) # => true
+# [ 1, [ 1, 1 ] ].same_structure_as( [ [ 2, 2 ], 2 ] ) # => false
+# [ 1, [ 1, 1 ] ].same_structure_as( [ [ 2 ], 2 ] ) # => false
+# [ [ [ ], [ ] ] ].same_structure_as( [ [ 1, 1 ] ] ) # => false
 
 
 
