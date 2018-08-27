@@ -278,28 +278,45 @@ end
 # the same nesting structure as the first array.
 
 # count commas to establish length, + 1
-# establish second variable to increment in case inner loop
-# is at an integer rather than an array
-# if items at index match && is an array
-# recursively call method
-# elsif integer increment second variable and make comparisons until class.is_a
-# else return false
+# iterate while count > 0
+# for self[idx] establish length of array
+# and iterate that many places of input Array confirming Integer
+# decrement count
 
 class Array
-  def self.same_structure_as(arr)
-    count = self.to_s.count(',') + 1
-    place = 0
-    count.times do |idx|
+  def same_structure_as(arr)
+    count = 0
+    commas = self.to_s.count(',') + 1
+    brackets = self.to_s.count('[') - 1
 
+    # iterate the greatest number of times
+    commas > brackets ? count = commas : count = brackets
+
+    idx_1 = 0
+    while count > idx_1
+      if self[idx_1].class == Array
+        # establish the number of items to check in sub array
+        current_arr_length = self[idx_1].length
+        
+        idx_2 = 0
+        while idx_2 < current_arr_length
+          return false if self[idx_1][idx_2].class != arr[idx_1][idx_2].class
+          idx_2 += 1
+        end
+      else
+        return false if arr[idx_1].class != Integer
+      end
+      idx_1 += 1
     end
+    true
   end
 end
 
-# [ 1, 1, 1 ].same_structure_as( [ 2, 2, 2 ] ) # => true
-# [ 1, [ 1, 1 ] ].same_structure_as( [ 2, [ 2, 2 ] ] ) # => true
-# [ 1, [ 1, 1 ] ].same_structure_as( [ [ 2, 2 ], 2 ] ) # => false
-# [ 1, [ 1, 1 ] ].same_structure_as( [ [ 2 ], 2 ] ) # => false
-# [ [ [ ], [ ] ] ].same_structure_as( [ [ 1, 1 ] ] ) # => false
+p [ 1, 1, 1 ].same_structure_as( [ 2, 2, 2 ] ) # => true
+p [ 1, [ 1, 1 ] ].same_structure_as( [ 2, [ 2, 2 ] ] ) # => true
+p [ 1, [ 1, 1 ] ].same_structure_as( [ [ 2, 2 ], 2 ] ) # => false
+p [ 1, [ 1, 1 ] ].same_structure_as( [ [ 2 ], 2 ] ) # => false
+p [ [ [ ], [ ] ] ].same_structure_as( [ [ 1, 1 ] ] ) # => false
 
 
 
