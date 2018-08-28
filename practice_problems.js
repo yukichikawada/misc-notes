@@ -387,7 +387,27 @@ function maxStolenValue(arr) {
 // console.log(maxStolenValue([1, 2]))              // => 2
 
 
+// given a 3 x 3 tic-tac-toe board, return 1
+// if x has won, 2 if o has won, or -1 if still in play
 
+function gameOver(board) {
+  // write helper method that takes the board and a player
+  // and returns expected value if true
+  // else return -1
+
+  // helper method finds player piece
+  // checks right, right down, down for matching
+  // if matched, checks in same direction for third
+  // can stop one at arr[2][0] if no piece
+}
+
+console.log(
+  gameOver([
+           [0, 0, 1],
+           [0, 1, 2],
+           [2, 1, 0]
+           ]) === -1
+);
 
 
 
