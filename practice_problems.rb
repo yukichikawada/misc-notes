@@ -297,14 +297,19 @@ class Array
       if self[idx_1].class == Array
         # establish the number of items to check in sub array
         current_arr_length = self[idx_1].length
-        
+
         idx_2 = 0
+        # debugger
         while idx_2 < current_arr_length
           return false if self[idx_1][idx_2].class != arr[idx_1][idx_2].class
           idx_2 += 1
         end
-      else
-        return false if arr[idx_1].class != Integer
+      elsif self[idx_1].class == Integer
+        return false if arr[idx_1].class == Array
+      elsif self[idx_1].class == String
+        return false if arr[idx_1].class == Array
+      elsif self[idx_1].class == Hash
+        return false if arr[idx_1].class == Array
       end
       idx_1 += 1
     end
@@ -317,8 +322,9 @@ p [ 1, [ 1, 1 ] ].same_structure_as( [ 2, [ 2, 2 ] ] ) # => true
 p [ 1, [ 1, 1 ] ].same_structure_as( [ [ 2, 2 ], 2 ] ) # => false
 p [ 1, [ 1, 1 ] ].same_structure_as( [ [ 2 ], 2 ] ) # => false
 p [ [ [ ], [ ] ] ].same_structure_as( [ [ 1, 1 ] ] ) # => false
-
-
+p [1,'[',']'].same_structure_as(['[',']',1]) # => true
+# p [[1, {}], 1, {}].same_structure_as([1]) # => false 
+# p [[1, {}], 1, {}].same_structure_as([{}]) # => false
 
 
 
