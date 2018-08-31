@@ -317,14 +317,95 @@ class Array
   end
 end
 
-p [ 1, 1, 1 ].same_structure_as( [ 2, 2, 2 ] ) # => true
-p [ 1, [ 1, 1 ] ].same_structure_as( [ 2, [ 2, 2 ] ] ) # => true
-p [ 1, [ 1, 1 ] ].same_structure_as( [ [ 2, 2 ], 2 ] ) # => false
-p [ 1, [ 1, 1 ] ].same_structure_as( [ [ 2 ], 2 ] ) # => false
-p [ [ [ ], [ ] ] ].same_structure_as( [ [ 1, 1 ] ] ) # => false
-p [1,'[',']'].same_structure_as(['[',']',1]) # => true
+# p [ 1, 1, 1 ].same_structure_as( [ 2, 2, 2 ] ) # => true
+# p [ 1, [ 1, 1 ] ].same_structure_as( [ 2, [ 2, 2 ] ] ) # => true
+# p [ 1, [ 1, 1 ] ].same_structure_as( [ [ 2, 2 ], 2 ] ) # => false
+# p [ 1, [ 1, 1 ] ].same_structure_as( [ [ 2 ], 2 ] ) # => false
+# p [ [ [ ], [ ] ] ].same_structure_as( [ [ 1, 1 ] ] ) # => false
+# p [1,'[',']'].same_structure_as(['[',']',1]) # => true
 # p [[1, {}], 1, {}].same_structure_as([1]) # => false 
 # p [[1, {}], 1, {}].same_structure_as([{}]) # => false
+
+# given and array
+# of the duplicates
+# return the number which has the lowest index 
+# of the second instance of duplicate number
+# else return -1
+
+# constraints: numbers in array are between 1..array.length
+
+# this method doesn't satisfy execution time limit for larger sets
+# def first_duplicate(a)
+#   record_number = nil
+#   record_idx = nil
+  
+#   i = 0
+#   while i < a.length - 1
+#     j = i + 1
+#     num = a[i]
+#     while j < a.length
+#       if  num == a[j] && (record_idx.nil? || j < record_idx)
+#         record_idx, record_number = j, a[j]
+#       end
+#       j += 1
+#     end
+#     i += 1
+#   end 
+  
+#   record_number.nil? ? -1 : record_number
+# end
+
+def first_duplicate(arr)
+  # iterate over arr once adding each integer as a key
+  # only insert a value for k,v pair if it's a duplicate && value < idx
+  hash = Hash.new
+  arr.each_with_index do |el, idx|
+    if hash[el] == true
+      hash[el] = idx
+    elsif hash[el] == nil
+      hash[el] = true      
+    elsif hash[el] > idx
+      hash[el] = idx
+    end
+  end
+
+  # filter keys without values for a hash that only includes duplicate integers
+  hash.keep_if do |key, value|
+    value != true
+  end
+
+  # of remaining k,v pairs which are integer,idx 
+  # record lowest_num if lowest_idx < v
+  lowest_idx = nil
+  lowest_num = nil
+  hash.each_pair do |key, value|
+    if lowest_idx.nil? || lowest_idx > value
+      lowest_idx, lowest_num = value, key
+    end
+  end
+
+  lowest_idx.nil? ? -1 : lowest_num
+end
+
+# p first_duplicate([2, 1, 3, 5, 3, 2]) # => 3
+# p first_duplicate([1, 1, 2, 2, 1]) # => 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
