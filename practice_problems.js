@@ -417,12 +417,9 @@ function gameOver(board) {
 
 function narcissictic(number) {
   const length = number.toString().length;
-  const nums = number.toString().split('');
-  debugger
-  const products = nums.map(num => num ** length);
+  const products = number.toString().split('').map(num => num ** length);
   const sum = products.reduce((acc, num) => acc += num);
-  const res = (sum == number);
-  return res;
+  return (sum == number);
 }
 
 console.log(narcissictic(7));
