@@ -401,14 +401,34 @@ function gameOver(board) {
   // can stop one at arr[2][0] if no piece
 }
 
-console.log(
-  gameOver([
-           [0, 0, 1],
-           [0, 1, 2],
-           [2, 1, 0]
-           ]) === -1
-);
+// console.log(
+//   gameOver([
+//            [0, 0, 1],
+//            [0, 1, 2],
+//            [2, 1, 0]
+//            ]) === -1
+// );
 
+
+// given a number return true or false
+// if number is sum of own digits raised to the power of number of digits
+// 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+// 1^4 + 6^4 + 3^4 + 4^4 = 1 + 1296 + 81 + 256 = 1634
+
+function narcissictic(number) {
+  const length = number.toString().length;
+  const nums = number.toString().split('');
+  debugger
+  const products = nums.map(num => num ** length);
+  const sum = products.reduce((acc, num) => acc += num);
+  const res = (sum == number);
+  return res;
+}
+
+console.log(narcissictic(7));
+console.log(narcissictic(153));
+console.log(narcissictic(154));
+console.log(narcissictic(1634));
 
 
 
