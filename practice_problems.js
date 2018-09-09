@@ -422,17 +422,33 @@ function narcissictic(number) {
   return (sum == number);
 }
 
-console.log(narcissictic(7));
-console.log(narcissictic(153));
-console.log(narcissictic(154));
-console.log(narcissictic(1634));
+// console.log(narcissictic(7));
+// console.log(narcissictic(153));
+// console.log(narcissictic(154));
+// console.log(narcissictic(1634));
 
 
 
 
+// write a function that returns a hash that contains the letter count
+// of each character of the given string
 
+function charHash(string) {
+  let hash = {};
+  string.split('').forEach(chr => {
+    if (hash[chr]) {
+      hash[chr] += 1;
+    } else {
+      hash[chr] = 1;
+    }
+  });
 
+  return hash;
+}
 
+console.log(charHash(''));
+console.log(charHash('ab'));
+console.log(charHash('aba'));
 
 
 
