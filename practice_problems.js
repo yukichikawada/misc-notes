@@ -446,13 +446,28 @@ function charHash(string) {
   return hash;
 }
 
-console.log(charHash(''));
-console.log(charHash('ab'));
-console.log(charHash('aba'));
+// console.log(charHash(''));
+// console.log(charHash('ab'));
+// console.log(charHash('aba'));
 
 
+// write a function that, given a string, returns the string camelCase
+function toCamelCase(string) {
+  return string.split(/[-_]/).map((word, idx) => {
+    if (idx == 0) {
+      return word;
+    } else {
+      return word.slice(0, 1).toUpperCase() + word.slice(1, word.length);
+    }
+  }).join('');
+}
 
-
+// console.log(toCamelCase(''));
+// console.log(toCamelCase('abcd'));
+// console.log(toCamelCase('simple-case-1'));
+// console.log(toCamelCase('simple_case_2'));
+// console.log(toCamelCase('Test_case_3'));
+// console.log(toCamelCase('Test-case-4'));
 
 
 
