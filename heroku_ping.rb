@@ -13,5 +13,5 @@ loop do
   p "evictions response: " + response.code + " ~ #{eviction_time}"
 
   # ping heroku dynos every 30 min to keep awake
-  sleep 3000
+  sleep (60 * 30)
 end
