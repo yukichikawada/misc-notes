@@ -470,7 +470,23 @@ function toCamelCase(string) {
 // console.log(toCamelCase('Test-case-4'));
 
 
+// write a function that, given a string, returns a boolean
+// based on whether string contains all letters of alphabet, not case sensitive
+function isPangram(string) {
+  let hash = {};
+  string.toLowerCase().split('').forEach(chr => {
+    if (hash[chr]) {
+      hash[chr] += 1;
+    } else if (chr.match(/[a-z]/)) {
+      hash[chr] = 1;
+    }
+  });
+  
+  return (Object.keys(hash).length == 26);
+}
 
+console.log(isPangram('The quick brown fox jumps over the lazy dog.') == true)
+console.log(isPangram('The quick brown fox.') == false)
 
 
 
