@@ -485,10 +485,19 @@ function isPangram(string) {
   return (Object.keys(hash).length == 26);
 }
 
-console.log(isPangram('The quick brown fox jumps over the lazy dog.') == true)
-console.log(isPangram('The quick brown fox.') == false)
+// console.log(isPangram('The quick brown fox jumps over the lazy dog.') == true)
+// console.log(isPangram('The quick brown fox.') == false)
 
 
+// given str1 & str2, return the last digit of str1 to the power of str2
+var lastDigit = function(str1, str2) {
+  const num = str1**str2;
+  return parseInt(num.toString().slice(-1));
+}
+
+console.log(lastDigit(4,1));
+console.log(lastDigit(4,2));
+console.log(lastDigit(9,7));
 
 
 
