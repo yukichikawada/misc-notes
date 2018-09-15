@@ -399,15 +399,32 @@ function gameOver(board) {
   // checks right, right down, down for matching
   // if matched, checks in same direction for third
   // can stop one at arr[2][0] if no piece
+  const x = winningPiece(board, 1);
+  const y = winningPiece(board, 2);
+
+  if (x == true) {
+    return 1;
+  } else if (y == true) {
+    return 2;
+  } else {
+    return -1;
+  }
 }
 
-// console.log(
-//   gameOver([
-//            [0, 0, 1],
-//            [0, 1, 2],
-//            [2, 1, 0]
-//            ]) === -1
-// );
+function winningPiece(board, player) {
+  let winner = false;
+  // write helper method that right, right diag, down
+  // also need to check up and to the left
+  return winner;
+}
+
+console.log(
+  gameOver([
+           [0, 0, 1],
+           [0, 1, 2],
+           [2, 1, 0]
+           ]) === -1
+);
 
 
 // given a number return true or false
@@ -495,9 +512,9 @@ var lastDigit = function(str1, str2) {
   return parseInt(num.toString().slice(-1));
 }
 
-console.log(lastDigit(4,1));
-console.log(lastDigit(4,2));
-console.log(lastDigit(9,7));
+// console.log(lastDigit(4,1));
+// console.log(lastDigit(4,2));
+// console.log(lastDigit(9,7));
 
 
 
