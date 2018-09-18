@@ -391,9 +391,20 @@ end
 # p first_duplicate([1, 1, 2, 2, 1]) # => 1
 
 
+# given n, coordinates_arr1, coordinates_arr2
+# n is an n X n grid starting idx 1
+# coordinates_arr1 is an array of lamps with x, y coors
+#   lamps illuminate grid like all possible movements of a queen in chess
+# coordinates_arr2 is an array of coordinates to check
+# return an array of 'LIGHT'/'DARK' values for coordinates_arr2
+# checking coordinates turns off all adjacent lamps
 
-
-
+# lamps = [[1, 1], [2, 2], [3, 1]]
+# coordinates = [[2, 1], [5,5], [4,5]]
+# e.g. illuminated(5, lamps, coordinates) => ['DARK', 'LIGHT', 'DARK']
+# bc [1,2] turns off all lamps as they're adjacent or touching
+# [5,5] is 'LIGHT' bc it's a diagonal of [1,1] and/or [2,2]
+# [4,5] is 'DARK' bc it's not a horizontal, vertical, or diagonal of given lamps
 
 
 
