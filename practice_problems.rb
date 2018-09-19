@@ -406,10 +406,58 @@ end
 # [5,5] is 'LIGHT' bc it's a diagonal of [1,1] and/or [2,2]
 # [4,5] is 'DARK' bc it's not a horizontal, vertical, or diagonal of given lamps
 
+# make a hash iterating over lamps containing x,y as key
+# value will be an array. array[0] = 1, (arr[1] = [key, adjacent_coors...] if
+#   origination of illumination)
+# if key already exists, arr[0] += 1
 
+# iterate thru coordinates, if hash has key and value > 1, return 'LIGHT',
+# if value == 1 check for a lamp in adjacent coordinates returning 'LIGHT' if 0
+# else return 'DARK'
 
+def illuminated(n, lamps, coordinates)
+  hash = lights_hash(n, lamps)
+  coordinates.map do |coor|
+    coor = coor.to_s
+    if hash[coor][0] > 1
+      'LIGHT'
+    elsif hash[coor][0] == 1
+      if hash[coor][1].include? coor
+        'DARK'
+      else
+        'LIGHT'
+      end
+    else
+      'DARK'
+    end
+  end
+end
 
+def lights_hash(n, lamps)
+  hash = Hash.new { |h, k| h[k] = [] }
+  
+  lamps.each do |lamp|
 
+  end
+
+  hash
+end
+
+def vert_cells(n, lamp)
+  
+end
+
+def horizontal_cells(n, lamp)
+  
+end
+
+def diag_up_cells(n, lamp)
+  
+end
+
+def diag_down_cells(n, lamp)
+  
+end
 
 
 
