@@ -419,10 +419,15 @@ def illuminated(n, lamps, coordinates)
   hash = lights_hash(n, lamps)
   coordinates.map do |coor|
     coor = coor.to_s
-    if hash[coor][0] > 1
-      'LIGHT'
-    elsif hash[coor][0] == 1
-      if hash[coor][1].include? coor
+    case
+    when coor > 1
+      if hash[1].all? { |pos| pos.include? coor }
+        'DARK'
+      else
+        'LIGHT'
+      end
+    when coor == 1
+      if hash[1].include? coor
         'DARK'
       else
         'LIGHT'
@@ -432,6 +437,11 @@ def illuminated(n, lamps, coordinates)
     end
   end
 end
+
+# hash key is coordinates.to_s
+# hash value is array of arrays
+# array is empty if it would be unaffected by adjacent rule
+# sub arrays otherwise contain coordinates that could toggle off light
 
 def lights_hash(n, lamps)
   hash = Hash.new { |h, k| h[k] = [] }
