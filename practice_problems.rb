@@ -478,7 +478,42 @@ end
 
 
 
+def reformatDate(dates)
+ dates.map { |date| date_format(date) }
+end
 
+MONTH_HASH = {
+    'Jan' => '01',
+    'Feb' => '02',
+    'Mar' => '03',
+    'Apr' => '04',
+    'May' => '05',
+    'Jun' => '06',
+    'Jul' => '07',
+    'Aug' => '08',
+    'Sep' => '09',
+    'Oct' => '10',
+    'Nov' => '11',
+    'Dec' => '12',
+    }
+
+def date_format(date)
+    frags = date.split(' ')
+    day = day_format(frags[0])
+    month = MONTH_HASH[frags[1]]
+    year = frags[2]
+    # debugger
+    "#{year}-#{month}-#{day}"
+end
+
+def day_format(day)
+    num = day[0...-2]
+    num.length == 2 ? num : "0#{num}"
+end
+
+
+p date_format('20th Oct 2052')
+p date_format('6th Jun 1933')
 
 
 
